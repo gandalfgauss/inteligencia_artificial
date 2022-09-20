@@ -1,0 +1,47 @@
+busca em espaço de estados e 
+solução de problemas de satisfação de restrições.
+
+Busca bidirecional (Bidiretional Search);
+
+
+Relatório descrevendo o algoritmo atribuído ao grupo
+
+link
+https://pt.overleaf.com/latex/templates/sbc-conferencestemplate/blbxwjwzdngr
+
+PowerPoint apresentação 25 e 30min:
+	• Descrição do algoritmo;
+	• Características do algoritmo (que tipo de problema resolve, tempo
+computacional, complexidade tempo e espaço);
+
+	• Aplicações do algoritmo (apresentar referencial bibliográfico com aplicações).
+	• Python Google Colab
+	
+Livro -> inteligência artificial - peter norvig
+
+Busca completa -> sempre acha solução
+e ótima -> sempre encontra a melhor solução
+melhor que busca em profudindade -> visível em árvores grandes
+Limitações -> Nem todo o problema é adequado. Ex: sei a cidade que estou saindo e chegando
+Problema das n rainhas
+Quando você sabe o ponto de partida e o ponto onde deve-se chegar e quer saber
+qual é o caminho ou se existe um determinado caminho para que resulte na solução.
+
+Labirinto outro exemplo
+
+
+Existência de um caminho entre dois pontos em um grafo
+	-Resolver Labirintos e caminho possível entre duas cidades
+
+Caminho mais curto em grafos de não ponderados ou ponderados de peso único
+	-Distância entre cidades
+
+Otimizar algoritmos como o Djsktra(Djsktra Birecional)
+e caminho mais curto ( em grafos de peso múltiplo)
+Ações de um agente inteligente para alcançar uma meta
+
+
+https://link.springer.com/article/10.1007/s10589-021-00303-5
+https://ieeexplore.ieee.org/document/6973571
+https://repositorio.ufc.br/handle/riufc/39485
+https://pt.coursera.org/lecture/algorithms-on-graphs/bidirectional-search-t6k1V

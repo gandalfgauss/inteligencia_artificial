@@ -1,0 +1,75 @@
+
+df = pd.get_dummies(df, columns=["StatusContaCorrente",
+                                 "HistóricoDeCrédito", "Propósito", 
+                                 "ContaPoupançaOuTítulos", "EmpregoAtualDesde",
+                                 "StatusPessoalESexo", "OutrosDevedoresOuFiadores",
+                                "Propriedade", "OutrosPlanosDeParcelamento",
+                                 "Habitação", "Trabalho"])
+
+
+colunas = df.columns.to_list()
+colunas.remove('BomOuMauCliente')
+colunas.append('BomOuMauCliente')
+
+df = df[colunas]
+
+# Renomear as Colunas
+
+
+# Não tem no Banco de Dados
+# Não tem Status pessoal e sexo -> femino Solteiro
+# Não tem Propósito -> férias, 
+
+novas_colunas= {'StatusContaCorrente_0':'StatusContaCorrente: x < 0 DM ', 
+             'StatusContaCorrente_1': 'StatusContaCorrente: 0 <= x < 200 DM',
+             'StatusContaCorrente_2' : 'StatusContaCorrente: x >= 200 DM',
+             'StatusContaCorrente_3': 'StatusContaCorrente: Sem Conta Corrente', 
+             'HistóricoDeCrédito_0':'HistóricoDeCrédito: Nenhum crédito recebido/todos pagos',
+             'HistóricoDeCrédito_1': "HistóricoDeCrédito: Todos os créditos neste banco pagos",         
+             'HistóricoDeCrédito_2' : 'HistóricoDeCrédito: Créditos existentes pagos devidamente até agora', 
+             'HistóricoDeCrédito_3': "HistóricoDeCrédito: Atraso no pagamento no passado",
+              "HistóricoDeCrédito_4": "HistóricoDeCrédito: Conta crítica",
+              'Propósito_0': "Propósito: carro (novo)", 
+               'Propósito_1': "Propósito: carro (usado)" ,
+               'Propósito_2' : "Propósito: Móveis/equipamentos" ,
+               'Propósito_3': "Propósito: rádio/televisão",
+               'Propósito_4' : "Propósito: eletrodomésticos ",
+               'Propósito_5': "Propósito: reparos",
+               'Propósito_6': "Propósito: educação", 
+               'Propósito_7' : "Propósito: reciclagem", 
+               'Propósito_8' :"Propósito: negócios" , 
+               'Propósito_9' : "Propósito: outros",
+               'ContaPoupançaOuTítulos_0': "ContaPoupançaOuTítulos: x < 100 DM", 
+               'ContaPoupançaOuTítulos_1' : "ContaPoupançaOuTítulos: 100 <= x < 500 DM", 
+               'ContaPoupançaOuTítulos_2' : "ContaPoupançaOuTítulos: 500 <= x < 1000 DM",
+               'ContaPoupançaOuTítulos_3' : "ContaPoupançaOuTítulos: x >= 1000 DM", 
+               'ContaPoupançaOuTítulos_4' : "ContaPoupançaOuTítulos: desconhecida",
+               'EmpregoAtualDesde_0': 'EmpregoAtualDesde: desempregado ', 
+               'EmpregoAtualDesde_1': 'EmpregoAtualDesde: x < 1 ano', 
+               'EmpregoAtualDesde_2': 'EmpregoAtualDesde: 1 <= x < 4 anos',
+               'EmpregoAtualDesde_3': 'EmpregoAtualDesde: 4 <= x < 7 anos', 
+               'EmpregoAtualDesde_4': 'EmpregoAtualDesde: x >= 7 anos',
+               'StatusPessoalESexo_0': 'StatusPessoalESexo: masculino - divorciado/separado', 
+               'StatusPessoalESexo_1': 'StatusPessoalESexo: mulher - divorciada/separada/casada',
+               'StatusPessoalESexo_2': 'StatusPessoalESexo: masculino - solteiro',
+               'StatusPessoalESexo_3': 'StatusPessoalESexo: masculino - casado/viúvo',
+               'OutrosDevedoresOuFiadores_0' : 'OutrosDevedoresOuFiadores: nenhum ', 
+               'OutrosDevedoresOuFiadores_1' : 'OutrosDevedoresOuFiadores: co-requerente', 
+               'OutrosDevedoresOuFiadores_2' : 'OutrosDevedoresOuFiadores: fiador', 
+               'Propriedade_0': 'Propriedade: imóveis ', 
+               'Propriedade_1' : 'Propriedade: convênio de poupança/seguro de vida' ,
+               'Propriedade_2' : 'Propriedade: carro ou outro',
+               'Propriedade_3' : 'Propriedade: desconhecido ', 
+               'OutrosPlanosDeParcelamento_0': "OutrosPlanosDeParcelamento: banco ",
+               'OutrosPlanosDeParcelamento_1' : "OutrosPlanosDeParcelamento: lojas ", 
+               'OutrosPlanosDeParcelamento_2' : "OutrosPlanosDeParcelamento: nenhum ",
+               'Habitação_0' : "Habitação: aluguel", 
+               'Habitação_1': "Habitação: próprio", 
+               'Habitação_2' : "Habitação: de graça ", 
+               'Trabalho_0' : "Trabalho: desempregado/não qualificado/não residente", 
+               'Trabalho_1' : "Trabalho: não qualificado/residente", 
+               'Trabalho_2': "Trabalho: funcionário/funcionário qualificado ", 
+               'Trabalho_3': "Trabalho: gestão/ autônomo/funcionário/diretor altamente qualificado"}
+df = df.rename(novas_colunas, axis = 1)
+
+df.head(10)
